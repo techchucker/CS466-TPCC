@@ -3,7 +3,13 @@
   class Order extends ArrayObject
   {
 
+    public $warehouseID;
+    public $districtID;
+    public $customerID;
     public $items;
+    public $orderID;
+    private $itemArg = "";
+    private $table = 'temp';
 
     # Function creates empty items array which will hold Item class objects
     public function __construct()
@@ -18,18 +24,54 @@
     }
 
     # Function will place order adding each item to the database
-    public function placeOrder()
+    public function placeOrder($pdo)
     {
       $time = new Timer(); # Create timer object to begin timing transaction submission
 
       $time->startTimer(); # Start timer
 
-      # Iterates through each item in the Order array list
+      $this->orderID = 12;
+
+      $this->itemArg = "";
+
+      # Iterates through each item in the Order array list and creates String to send
+      # via the SQL prepared statement
       foreach($this->items as $key => $i)
       {
-        ######### ADD SQL CODE HERE ########
-        echo 'Placing order of item #: ', $key + 1,'<br>';
+        if($this->itemArg == "")
+        {
+          $this->itemArg .= $i->itemID . "," .$i->quantity;
+        }
+        else
+        {
+          $this->itemArg .= "|" .$i->itemID . "," .$i->quantity;
+        }
       }
+
+      # Place SQL order by calling stored procedure
+      try {
+
+        $sql = $pdo->prepare('CALL tpcc.placNewOrder(?,?,?,?)');
+
+        $sql->bindParam(1, $this->warehouseID, PDO::PARAM_INT);
+        $sql->bindParam(2, $this->districtID, PDO::PARAM_INT);
+        $sql->bindParam(3, $this->customerID, PDO::PARAM_INT);
+        $sql->bindParam(4, $this->itemArg, PDO::PARAM_STR, 500);
+
+        $sql->execute();
+        /*
+        $sql = $pdo->prepare('CALL tpcc.sp_split(?)');
+
+        $sql->bindParam(1, $this->itemArg, PDO::PARAM_STR, 500);
+
+        $sql->execute();
+        */
+
+      } catch (PDOException $e) {
+          die("Error occurred:" . $e->getMessage());
+      }
+
+      echo $this->itemArg;
 
       $time->stopTimer(); # Stop timer
       $duration = $time->calculateDuration(); # Calculate duration of transaction
@@ -56,8 +98,8 @@
   /*  Class ITEM is an individual line item of an order */
   class Item
   {
-    private $itemID;
-    private $quantity;
+    public $itemID;
+    public $quantity;
 
     public function __construct($id, $qty)
     {
