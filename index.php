@@ -2,7 +2,6 @@
 <html lang="en">
 <?php
   include("config.php");
-  #include("classes.php");
 
   foreach (glob("models/*.php") as $filename)
   {
@@ -341,7 +340,7 @@
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                               <!-- Item Order Form -->
-                              <div class="card shadow mb-4">
+                              <div class="card border-left-primary shadow h-100 py-2">
                                   <div class="card-header py-3">
                                       <h6 class="m-0 font-weight-bold text-primary">Order Form</h6>
                                   </div>
