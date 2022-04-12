@@ -58,94 +58,9 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+                    <i class="fas fa-fw fa-solid fa-home"></i>
+                    <span>Home</span></a>
             </li>
 
             <!-- Divider -->
@@ -374,91 +289,180 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h1 class="h3 mb-0 text-gray-800">TPC-C Benchmark Order</h1>
+                        <!--
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        -->
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Warehouse ID card -->
-                        <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="row d-flex align-items-center justify-content-center">
+                        <!-- Warehouse/District/Customer Card -->
+                        <div class="col-xl-6 col-md-4 mb-2">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Warehouse ID</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
+                                      <!-- Warehouse/District/Customer Form -->
+                                      <div class="card-body">
+                                          <div class="table-responsive">
+                                            <form method="GET" action="">
+                                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                  <tbody>
+                                                      <tr>
+                                                        <td>Select Warehouse</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="warehouseID"/></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>Select District</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="districtID"/></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>Select Customer</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="customerID"/></td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                            </form>
+                                          </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- District ID Card -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                District ID</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Customer ID Card -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Customer ID
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
 
                     <!-- Content Row -->
 
-                    <div class="row">
+                    <div class="row d-flex align-items-center justify-content-center">
 
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
+                              <!-- Item Order Form -->
+                              <div class="card shadow mb-4">
+                                  <div class="card-header py-3">
+                                      <h6 class="m-0 font-weight-bold text-primary">Order Form</h6>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                          <form method="GET" action="">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Line</th>
+                                                        <th>OL_I_ID</th>
+                                                        <th>OL_SUPPLY_W_ID</th>
+                                                        <th>OL_QUANTITY</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">1</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">2</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">3</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">4</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">5</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">6</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">7</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">8</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">9</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">10</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">11</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">12</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">13</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">14</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">15</td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_I_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_SUPPLY_W_ID"/></td>
+                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_QUANTITY"/></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="text-center">
+                                              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                              class="fas fa-sm text-white-50"></i> Place Order</a>
+                                            </div>
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>
+
                                 <!-- Card Header - Dropdown -->
+                                <!--
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Order Form</h6>
@@ -477,54 +481,15 @@
                                         </div>
                                     </div>
                                 </div>
+                              -->
                                 <!-- Card Body -->
+                                <!--
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
-                                </div>
+                                -->
                             </div>
                         </div>
                     </div>
