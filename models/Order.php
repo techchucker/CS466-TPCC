@@ -10,6 +10,10 @@ class Order extends ArrayObject
   public $orderID;
   private $itemArg = "";
   private $table = 'temp';
+  private $compiledItems;
+  private $result;
+
+  #$result = '';
 
   # Function creates empty items array which will hold Item class objects
 /*
@@ -31,31 +35,40 @@ class Order extends ArrayObject
   #   string which is returned for use to send to SQL server
   public function compileItems()
   {
-    $compiledItems = '';
-    $result = '';
+    #$this->compiledItems = '';
+    #$result = '';
 
       foreach($this->items as $i)
       {
         #echo $i->displayItem();
-        if($compiledItems == '')
+        if($this->compiledItems == '')
         {
-          $compiledItems .= $i->itemID.','.$i->quantity;
+          $this->compiledItems .= $i->itemID.':'.$i->quantity;
         }
         else
         {
-          $compiledItems .= '|'.$i->itemID.','.$i->quantity;
+          $this->compiledItems .= '|'.$i->itemID.':'.$i->quantity;
         }
       }
 
-      $result = "'" . $compiledItems . "'";
-      #$result = $compiledItems;
-      return $result;
+      #$this->result = '"' . (string) $this->compiledItems . '"';
+      #$result = (string) $this->compiledItems;
+      #return $this->result;
+      return $this->compiledItems;
   }
 
   # Function adds Item Class objects to the Items Array
   public function addItem($item)
   {
-    $this->items[] = $item;
+    if($item->validate() == TRUE)
+    {
+      # If item contains both values it will be added to the order
+      $this->items[] = $item;
+    }
+    else
+    {
+      # Item not valid. Nothing is done
+    }
   }
 
   # Function will place order adding each item to the database
@@ -88,24 +101,35 @@ class Order extends ArrayObject
     # Place SQL order by calling stored procedure
     try {
 
-      echo 'Starting SQL Execution <br>';
+      #echo 'Starting SQL Execution <br>';
 
-      $itemArg = $this->compileItems();
+      $this->itemArg = $this->compileItems();
 
-      echo $itemArg;
+      #echo $this->itemArg;
+
 
       $sql = $pdo->prepare('CALL tpcc.placeNewOrder(?,?,?,?)');
 
       $sql->bindParam(1, $this->warehouseID, PDO::PARAM_INT);
       $sql->bindParam(2, $this->districtID, PDO::PARAM_INT);
       $sql->bindParam(3, $this->customerID, PDO::PARAM_INT);
-      $sql->bindParam(4, $this->itemArg, PDO::PARAM_STR);
+      $sql->bindParam(4, $this->itemArg, PDO::PARAM_STR, 1000);
 
       $sql->execute();
 
       #echo $return_value;
 
-      echo '<br>Completing SQL Execution <br>';
+      #$result = $sql->fetchAll();
+
+      /*** loop of the results ***/
+      /*
+      foreach($result as $row)
+      {
+        echo $row[0];
+      }
+      */
+
+      #echo '<br>Completing SQL Execution <br>';
 
       /*
       $sql = $pdo->prepare('CALL tpcc.sp_split(?)');

@@ -23,6 +23,19 @@ class Item
     $this->quantity = $qty;
   }
 
+  # Function checks to ensure both values are set and returns a boolean result
+  public function validate()
+  {
+    if($this->itemID != null && $this->quantity != null)
+    {
+      return TRUE;
+    }
+    else
+    {
+      return FALSE;
+    }
+  }
+
   # Function returns Item Class Object ItemID value
   public function getItemID()
   {

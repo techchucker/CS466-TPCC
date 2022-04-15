@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-  #include("config.php");
+  include("config.php");
 
   foreach (glob("models/*.php") as $filename)
   {
@@ -60,6 +60,15 @@
                     <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
                     <i class="fas fa-fw fa-solid fa-home"></i>
                     <span>Home</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item active">
+                <a class="nav-link" type="button" onClick="window.location.href=window.location.href">
+                    <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+                    <i class="fas fa-fw fa-solid fa-sync"></i>
+                    <span>Reset</span></a>
             </li>
 
             <!-- Divider -->
@@ -491,9 +500,44 @@
                           $cid = $_POST['customerID'];
                           $showResults = true;
 
-                          $order1 = new Order($wid, $did, $cid);
+                          # Create Order object
+                          $order = new Order($wid, $did, $cid);
 
-                          #$order1->displayInfo();
+                          # Create Item objects
+                          if(isset($_POST['LN1_OL_I_ID']) && isset($_POST['LN1_OL_QUANTITY'])){$item1 = new Item($_POST['LN1_OL_I_ID'], $_POST['LN1_OL_QUANTITY']);}
+                          if(isset($_POST['LN2_OL_I_ID']) && isset($_POST['LN2_OL_QUANTITY'])){$item2 = new Item($_POST['LN2_OL_I_ID'], $_POST['LN2_OL_QUANTITY']);}
+                          if(isset($_POST['LN3_OL_I_ID']) && isset($_POST['LN3_OL_QUANTITY'])){$item3 = new Item($_POST['LN3_OL_I_ID'], $_POST['LN3_OL_QUANTITY']);}
+                          if(isset($_POST['LN4_OL_I_ID']) && isset($_POST['LN4_OL_QUANTITY'])){$item4 = new Item($_POST['LN4_OL_I_ID'], $_POST['LN4_OL_QUANTITY']);}
+                          if(isset($_POST['LN5_OL_I_ID']) && isset($_POST['LN5_OL_QUANTITY'])){$item5 = new Item($_POST['LN5_OL_I_ID'], $_POST['LN5_OL_QUANTITY']);}
+                          if(isset($_POST['LN6_OL_I_ID']) && isset($_POST['LN6_OL_QUANTITY'])){$item6 = new Item($_POST['LN6_OL_I_ID'], $_POST['LN6_OL_QUANTITY']);}
+                          if(isset($_POST['LN7_OL_I_ID']) && isset($_POST['LN7_OL_QUANTITY'])){$item7 = new Item($_POST['LN7_OL_I_ID'], $_POST['LN7_OL_QUANTITY']);}
+                          if(isset($_POST['LN8_OL_I_ID']) && isset($_POST['LN8_OL_QUANTITY'])){$item8 = new Item($_POST['LN8_OL_I_ID'], $_POST['LN8_OL_QUANTITY']);}
+                          if(isset($_POST['LN9_OL_I_ID']) && isset($_POST['LN9_OL_QUANTITY'])){$item9 = new Item($_POST['LN9_OL_I_ID'], $_POST['LN9_OL_QUANTITY']);}
+                          if(isset($_POST['LN10_OL_I_ID']) && isset($_POST['LN10_OL_QUANTITY'])){$item10 = new Item($_POST['LN10_OL_I_ID'], $_POST['LN10_OL_QUANTITY']);}
+                          if(isset($_POST['LN11_OL_I_ID']) && isset($_POST['LN11_OL_QUANTITY'])){$item11 = new Item($_POST['LN11_OL_I_ID'], $_POST['LN11_OL_QUANTITY']);}
+                          if(isset($_POST['LN12_OL_I_ID']) && isset($_POST['LN12_OL_QUANTITY'])){$item12 = new Item($_POST['LN12_OL_I_ID'], $_POST['LN12_OL_QUANTITY']);}
+                          if(isset($_POST['LN13_OL_I_ID']) && isset($_POST['LN13_OL_QUANTITY'])){$item13 = new Item($_POST['LN13_OL_I_ID'], $_POST['LN13_OL_QUANTITY']);}
+                          if(isset($_POST['LN14_OL_I_ID']) && isset($_POST['LN14_OL_QUANTITY'])){$item14 = new Item($_POST['LN14_OL_I_ID'], $_POST['LN14_OL_QUANTITY']);}
+                          if(isset($_POST['LN15_OL_I_ID']) && isset($_POST['LN15_OL_QUANTITY'])){$item15 = new Item($_POST['LN15_OL_I_ID'], $_POST['LN15_OL_QUANTITY']);}
+
+                          $order->addItem($item1);
+                          $order->addItem($item2);
+                          $order->addItem($item3);
+                          $order->addItem($item4);
+                          $order->addItem($item5);
+                          $order->addItem($item6);
+                          $order->addItem($item7);
+                          $order->addItem($item8);
+                          $order->addItem($item9);
+                          $order->addItem($item10);
+                          $order->addItem($item11);
+                          $order->addItem($item12);
+                          $order->addItem($item13);
+                          $order->addItem($item14);
+                          $order->addItem($item15);
+
+                          # Executes placeOrder function to initiate the SQL Stored Procedure call
+                          $order->placeOrder($pdo);
 
                           ?>
                           <div class="row d-flex align-items-center justify-content-center">
@@ -512,15 +556,15 @@
                                                     <tbody>
                                                         <tr>
                                                           <td class="font-weight-bold">Warehouse</td>
-                                                          <td><?php echo $order1->warehouseID ?></td>
+                                                          <td><?php echo $order->warehouseID ?></td>
                                                         </tr>
                                                         <tr>
                                                           <td class="font-weight-bold">District</td>
-                                                          <td><?php echo $order1->districtID ?></td>
+                                                          <td><?php echo $order->districtID ?></td>
                                                         </tr>
                                                         <tr>
                                                           <td class="font-weight-bold">Customer</td>
-                                                          <td><?php echo $order1->customerID ?></td>
+                                                          <td><?php echo $order->customerID ?></td>
                                                         </tr>
                                                     </tbody>
                                                   </table>
@@ -535,7 +579,6 @@
                           </div>
 
                           <div class="row d-flex align-items-center justify-content-center">
-
                               <!-- Area Chart -->
                               <div class="col-xl-8 col-lg-7">
                                   <div class="card shadow mb-4">
@@ -558,13 +601,22 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                      <tr>
-                                                          <td class="text-center">1</td>
-                                                          <td class="text-center"></td>
-                                                          <td class="text-center"></td>
-                                                          <td class="text-center"></td>
-                                                      </tr>
+
+                                                      <?php
+                                                        $counter = 1;
+                                                        foreach($order->items as $i)
+                                                        {?>
+                                                          <tr>
+                                                              <td class="text-center"><?php echo $counter ?></td>
+                                                              <td class="text-center"><?php echo $i->itemID ?></td>
+                                                              <td class="text-center"></td>
+                                                              <td class="text-center"><?php echo $i->quantity ?></td>
+                                                          </tr>
+                                                        <?php
+                                                          $counter++;
+                                                        }?>
                                                     </tbody>
+
                                                   </table>
                                                   <div class="text-center">
                                                     <button onClick="window.location.href=window.location.href" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm fas fa-sm text-white-80">Reset</button>
