@@ -32,6 +32,13 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script>
+      $(function(){
+        var $table = $('#dataTable');
+
+        $table.bootstrapTable('hideColumn', 'LN4_OL_SUPPLY_W_ID');
+      });
+    </script>
 
 </head>
 
@@ -375,7 +382,7 @@
                                                     <tr>
                                                         <th>Line</th>
                                                         <th>OL_I_ID</th>
-                                                        <th>OL_SUPPLY_W_ID</th>
+                                                        <!--<th>OL_SUPPLY_W_ID</th>-->
                                                         <th>OL_QUANTITY</th>
                                                     </tr>
                                                 </thead>
@@ -383,91 +390,92 @@
                                                     <tr>
                                                         <td class="text-center">1</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN1_OL_QUANTITY"/></td>
                                                     </tr>
+
                                                     <tr>
                                                         <td class="text-center">2</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN2_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">3</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN3_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">4</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN4_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">5</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN5_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">6</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN6_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">7</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN7_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">8</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN8_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">9</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN9_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">10</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN10_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">11</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN11_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">12</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN12_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">13</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN13_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">14</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN14_OL_QUANTITY"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">15</td>
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_I_ID"/></td>
-                                                        <td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_SUPPLY_W_ID"/></td>
+                                                        <!--<td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_SUPPLY_W_ID"/></td>-->
                                                         <td><input type="text" class="form-control bg-light border-0 small" name="LN15_OL_QUANTITY"/></td>
                                                     </tr>
                                                 </tbody>
@@ -499,7 +507,9 @@
                           $did = $_POST['districtID'];
                           $cid = $_POST['customerID'];
                           $showResults = true;
-
+                          $timer = new Timer();
+                          $timer->startTimer();
+                          #echo 'Order Timer Started at: '. $timer->getStartTime();
                           # Create Order object
                           $order = new Order($wid, $did, $cid);
 
@@ -596,7 +606,7 @@
                                                         <tr>
                                                             <th class="text-center">Line</th>
                                                             <th class="text-center">OL_I_ID</th>
-                                                            <th class="text-center">OL_SUPPLY_W_ID</th>
+                                                            <!--<th class="text-center">OL_SUPPLY_W_ID</th>-->
                                                             <th class="text-center">OL_QUANTITY</th>
                                                         </tr>
                                                     </thead>
@@ -609,7 +619,7 @@
                                                           <tr>
                                                               <td class="text-center"><?php echo $counter ?></td>
                                                               <td class="text-center"><?php echo $i->itemID ?></td>
-                                                              <td class="text-center"></td>
+                                                              <!--<td class="text-center"></td>-->
                                                               <td class="text-center"><?php echo $i->quantity ?></td>
                                                           </tr>
                                                         <?php
@@ -631,8 +641,11 @@
                             </form>
                           </div>
 
-                            <?php
 
+                            <?php
+                            $timer->stopTimer();
+                            #echo 'Timer stopped at: '. $timer->getEndTime(). '<br>';
+                            #echo 'Total Transaction Duration: '. $timer->calculateDuration();
 
                           }
                           else
