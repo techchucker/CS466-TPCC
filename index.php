@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+  # Contains Database configuration information
   include("config.php");
 
+  # Loops through all files in Models dir to include all Classes
   foreach (glob("models/*.php") as $filename)
   {
     include_once($filename);
   }
 
+  # Starts session
   session_start();
-  /*
-  echo 'Session ID: ';
-  echo session_id(),'<br>';
-  */
+
 ?>
 <head>
 
@@ -32,14 +32,6 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <script>
-      $(function(){
-        var $table = $('#dataTable');
-
-        $table.bootstrapTable('hideColumn', 'LN4_OL_SUPPLY_W_ID');
-      });
-    </script>
-
 </head>
 
 <body id="page-top">
@@ -312,6 +304,8 @@
 
                     <!-- Content Row -->
                     <?php
+                    # Checks if $_POST contains data, if empty process this section
+                    # This section will present the order form
                     if(empty($_POST)){
                     ?>
                     <div class="row d-flex align-items-center justify-content-center">
@@ -322,12 +316,7 @@
                                     <div class="row no-gutters align-items-center">
                                       <!-- Warehouse/District/Customer Form -->
                                       <div class="card-body">
-                                        <?php
-                                        #$order1 = new Order();
-                                        ?>
-
                                           <div class="table-responsive">
-                                            <!--<form method="GET" action="">-->
                                               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                   <tbody>
                                                       <tr>
@@ -344,15 +333,6 @@
                                                       </tr>
                                                   </tbody>
                                               </table>
-
-                                              <?php
-                                              # Setting warehouse, district, and customer id for order
-                                              /*
-                                              $order1->warehouseID = 12;
-                                              $order1->districtID = 24;
-                                              $order1->customerID = 7;
-                                              */
-                                              ?>
                                             <!--</form>-->
                                           </div>
                                       </div>
@@ -376,7 +356,7 @@
                                   <div class="card-body">
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                          <!--<form method="GET" action="">-->
+                                          <!-- Order form table -->
                                             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
@@ -497,23 +477,29 @@
                     }
                     ?>
 
+                    <!-- END OF ORDER FORM SECTION -->
+                    <!-- START OF ORDER SUMMARY SECTION -->
 
                     <?php
                     try {
+                      # If Post is NOT empty display this section of code to user
+                      # This is the order post to SQL and summary display
                       if(!empty($_POST)){
-
+                        # Checks if the warehouse, district, and customer fields contain data
                         if(isset($_POST['warehouseID']) && isset($_POST['districtID']) && isset($_POST['customerID'])) {
                           $wid = $_POST['warehouseID'];
                           $did = $_POST['districtID'];
                           $cid = $_POST['customerID'];
                           $showResults = true;
+
+                          # Creates new Timer Class object for tracking order duration
                           $timer = new Timer();
-                          $timer->startTimer();
-                          #echo 'Order Timer Started at: '. $timer->getStartTime();
+                          $timer->startTimer(); // Starts timer
+
                           # Create Order object
                           $order = new Order($wid, $did, $cid);
 
-                          # Create Item objects
+                          # Create Item objects if they contain data
                           if(isset($_POST['LN1_OL_I_ID']) && isset($_POST['LN1_OL_QUANTITY'])){$item1 = new Item($_POST['LN1_OL_I_ID'], $_POST['LN1_OL_QUANTITY']);}
                           if(isset($_POST['LN2_OL_I_ID']) && isset($_POST['LN2_OL_QUANTITY'])){$item2 = new Item($_POST['LN2_OL_I_ID'], $_POST['LN2_OL_QUANTITY']);}
                           if(isset($_POST['LN3_OL_I_ID']) && isset($_POST['LN3_OL_QUANTITY'])){$item3 = new Item($_POST['LN3_OL_I_ID'], $_POST['LN3_OL_QUANTITY']);}
@@ -530,6 +516,8 @@
                           if(isset($_POST['LN14_OL_I_ID']) && isset($_POST['LN14_OL_QUANTITY'])){$item14 = new Item($_POST['LN14_OL_I_ID'], $_POST['LN14_OL_QUANTITY']);}
                           if(isset($_POST['LN15_OL_I_ID']) && isset($_POST['LN15_OL_QUANTITY'])){$item15 = new Item($_POST['LN15_OL_I_ID'], $_POST['LN15_OL_QUANTITY']);}
 
+                          # Adds each item to the Order Class object
+                          # Function checks if there is data and ignores lines that have no entries
                           $order->addItem($item1);
                           $order->addItem($item2);
                           $order->addItem($item3);
@@ -643,9 +631,8 @@
 
 
                             <?php
+                            # Stops timer when order has been placed
                             $timer->stopTimer();
-                            #echo 'Timer stopped at: '. $timer->getEndTime(). '<br>';
-                            #echo 'Total Transaction Duration: '. $timer->calculateDuration();
 
                           }
                           else
