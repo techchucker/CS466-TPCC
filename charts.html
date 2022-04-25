@@ -267,8 +267,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -279,8 +278,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -291,8 +289,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -324,8 +321,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -359,87 +355,132 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-                    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
-                        The charts below have been customized - for further customization options, please visit the <a
-                            target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
-                            documentation</a>.</p>
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <div class="col-xl-8 col-lg-7">
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the area chart can be found in the
-                                    <code>/js/demo/chart-area-demo.js</code> file.
-                                </div>
+                    <div class="col-xl-5 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Stopwatch</h6>
                             </div>
+                            <!-- Card Body -->
 
-                            <!-- Bar Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
+                            <div class="card-body">
+                                <div class="chart-pie pt-4">
+                                <!-- Donut Chart -->
+                                <style>
+                                    .contain {
+                                        background-color: #36308f;
+                                        height: 38vh;
+                                        width: 60%;
+                                        text-align: center;
+                                        position: absolute;
+                                    }
+
+                                    .wrap {
+                                        position: relative;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                    }
+
+                                    .wrap p {
+                                        
+                                        position: relative;
+                                        display: inline-block;
+                                        color: #ffffff;
+                                        z-index: 9999;
+                                        font-size: 40px;
+                                        margin-bottom: 120px;
+                                    }
+
+                                    .wrap p::before {
+                                        content: '';
+                                        position: absolute;
+                                        width: 200px;
+                                        height: 200px;
+                                        background-color: #151538;
+                                        z-index: -1;
+                                        border-radius: 50%;
+                                        left: -10%;
+                                        top: -118%;
+                                        animation-name: shine;
+                                        animation-duration: 4s;
+                                        animation-iteration-count: infinite;
+                                    }
+
+                                    @keyframes shine {
+
+                                        0%,
+                                        100% {
+                                            box-shadow: 0px 0px 32px -12px rgb(133, 18, 133);
+                                        }
+
+                                        50% {
+                                            box-shadow: 0px 0px 32px 3px rgba(35, 1, 39, 0.5);
+                                        }
+                                    }
+
+                                    .btn-start,
+                                    .btn-stop,
+                                    .btn-reset {
+                                        background-color: #222242;
+                                        padding: 10px 38px;
+                                        border: 1px solid #A9A9A9;
+                                        border-radius: 28px;
+                                        color: #fff;
+                                        transition: all .2s ease;
+                                        outline: 0;
+                                    }
+
+                                    button:not(:last-child) {
+                                        margin-right: 20px;
+                                    }
+
+                                    button:hover,
+                                    button:focus {
+                                        border-color: #F6B400;
+                                        color: #F6B400;
+                                        box-shadow: 0px 4px 27px -12px #F6B400;
+                                    }
+                                </style>
+                                <div class="contain">
+                                    <div class="wrap">
+                                        <p>
+                                            <span class="mins">00</span>:<span class="seconds">00</span>:<span
+                                                class="tens">00</span>
+                                        </p> <br>
+                                        <button class="btn-start">Start</button>
+                                        <button class="btn-stop">Stop</button>
+                                        <button class="btn-reset">Reset</button>
                                     </div>
-                                    <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code> file.
                                 </div>
-                            </div>
 
-                        </div>
+                                <hr>
 
-                        <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the donut chart can be found in the
-                                    <code>/js/demo/chart-pie-demo.js</code> file.
-                                </div>
+                                <script src="script.js"></script>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
