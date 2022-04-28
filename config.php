@@ -1,7 +1,7 @@
 <?php
-	define('DB_SERVER', 'localhost:3306');
-	define('DB_USERNAME', 'root');
-	define('DB_PASSWORD', 'Configure32');
+	define('DB_SERVER', 'tpcc.cgdl9talsrzb.us-east-2.rds.amazonaws.com:3306');
+	define('DB_USERNAME', 'cs466_tpcc');
+	define('DB_PASSWORD', 'pkflhLj#3jhmL6K');
 	define('DB_DATABASE', 'tpcc');
 	$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
